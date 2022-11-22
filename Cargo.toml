@@ -1,0 +1,24 @@
+[package]
+name = "raze-rs"
+version = "0.1.0"
+authors = ["Raphael Ahrens <raphaelahrens@googlemail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bincode = "1.3"
+clap = "2.34"
+libusb = "0.3"
+serde = { version = "1.0" , features = ["derive"]} 
+
+[lib]
+name = "razer_rs"
+path = "src/lib.rs"
+test = true
+doctest = true
+bench = true
+doc = true
+[[bin]]
+name = "razer_light"
+path = "src/main.rs"
