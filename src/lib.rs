@@ -1,4 +1,4 @@
-use serde::{Serialize};
+use serde::Serialize;
 use std::str::FromStr;
 use bincode::Options; // TODO: Replace with proper serializer 
 use std::convert::TryFrom;
