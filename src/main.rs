@@ -2,6 +2,8 @@ use std::time::Duration;
 use eyre::{eyre, Result};
 use clap::{Parser, Subcommand, ValueEnum};
 
+use rusb::{Context, UsbContext};
+
 use razer_rs::{pack, Off, Breath, Spectrum, SCROLLWHEEL, LOGO, Colour, Static};
 
 
@@ -72,7 +74,7 @@ fn main() -> Result<()>{
         Command::Static{colour} => pack(Static::new(led, colour))?,
     };
 
-    let context = libusb::Context::new()?;
+    let context = Context::new()?;
     
     let razer_handle = match context.open_device_with_vid_pid(vendor_id, product_id) {
        None => {
